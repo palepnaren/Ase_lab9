@@ -1,0 +1,185 @@
+<!doctype html>
+<html ng-app="Mash">
+
+<head >
+ <title>Mashup App!</title>
+
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjW-xyIUZzV4V9pv4wrqARGNKuwrju5y8&libraries=places&v=3.exp"></script>
+
+</head>
+<body ng-controller="DirectionWeather_Controller">
+  <div ng-view >
+
+    <div   class="left">
+
+    <p><b>Enter the Source: </b> <input type="text" ng-model = "Source" id ="Source" class="input">  </p>
+
+
+
+     <p><b>Enter the Destination: </b><input type="text" ng-model = "Destination" id = "Destination" class="input">
+        <input type= "button" value ="Distance" ng-click="getDirection()">
+      </p>
+
+
+
+        <div id = "Map-Canvas" style="width:500px;height:500px;">
+        </div>
+
+    </div>
+    <div class="right"  id="weather">
+
+
+
+        <table class="table table-striped table-bordered table-hover">
+
+            <tr>
+        <td >
+       <b>Source City Weather details:</b>
+        </td>
+        <td>
+        {{Source_name}}
+        </td>
+        </tr>
+            <tr>
+        <td>
+     <b>Temperature :  </b>
+        </td>
+        <td>
+        {{Source_temp}} &#8457
+        </td>
+        </tr>
+        <tr>
+    <td>
+    <b>Wind Speed:  </b>
+    </td>
+    <td>
+    {{Source_wind}} Mph
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Weather:  </b>
+    </td>
+    <td>
+    {{Source_weather}}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Weather Description:  </b>
+    </td>
+    <td>
+    {{Source_weatherDesc}}
+    </td>
+    </tr>
+            <tr>
+        <td>
+       <b>Humidity :  </b>
+        </td>
+        <td>
+        {{Source_humidity}} %
+        </td>
+        </tr>
+
+
+
+            <tr>
+            <td>
+                <img ng-attr-src= "{{Source_icon}}">
+                </td>
+                <td></td>
+            </tr>
+
+
+
+
+        </table>
+
+
+
+
+        <table class="table table-striped table-bordered table-hover">
+
+          <tr>
+      <td >
+     <b>Source City Weather details:</b>
+      </td>
+      <td>
+      {{Destination_name}}
+      </td>
+      </tr>
+          <tr>
+      <td>
+    <b>Temperature :  </b>
+      </td>
+      <td>
+      {{Destination_temp}} &#8457
+      </td>
+      </tr>
+      <tr>
+    <td>
+    <b>Wind Speed:  </b>
+    </td>
+    <td>
+    {{Destination_wind}} Mph
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Weather:  </b>
+    </td>
+    <td>
+    {{Destination_weather}}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <b>Weather Description:  </b>
+    </td>
+    <td>
+    {{Destination_weatherDesc}}
+    </td>
+    </tr>
+          <tr>
+      <td>
+     <b>Humidity :  </b>
+      </td>
+      <td>
+      {{Destination_humidity}} %
+      </td>
+      </tr>
+
+
+
+          <tr>
+          <td>
+              <img ng-attr-src= "{{Destination_icon}}">
+              </td>
+              <td></td>
+          </tr>
+
+
+
+
+        </table>
+
+    </div>
+
+
+    </div>
+
+
+
+
+    <script src="./scripts/angular.js"></script>
+       <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>-->
+        <script src="./controllers/DirectionWeather_Controller.js"></script>
+        <script src="./factories/Maps_Factory.js"></script>
+      <script src="./factories/OpenWeather_Factory.js"></script>
+
+
+
+</body>
+</html>
